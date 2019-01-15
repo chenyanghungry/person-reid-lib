@@ -30,7 +30,9 @@ class ConstType(object):
         else:
             self.__dict__[key] = value
 
-
+"""
+判断使用那个数据库并执行对应的库文件
+"""
 class DataBank(Dataset, ConstType):
     def __init__(self, name, root_dir, rawfiles_dir, split_id, npr, minframes=None, logger=None):
         self.name = name

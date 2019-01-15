@@ -100,11 +100,13 @@ class ConstType(object):
         else:
             self.__dict__[key] = value
 
-
+"""
+这里可以添加需要在命令行输入的参数
+"""
 class ParseArgs(object):
     def __init__(self, logger=None):
-        parser = argparse.ArgumentParser(description='ReID')
-        parser.add_argument('--gpu', default='all', type=str, help='gpu_ids: e.g. 0  0,1,2  0,2')
+        parser = argparse.ArgumentParser(description='Video-based ReID')
+        parser.add_argument('--gpu', default='0', type=str, help='gpu_ids: e.g. 0  0,1,2  0,2')
         self.args = parser.parse_args()
 
         if logger is None:
