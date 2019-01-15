@@ -16,7 +16,9 @@ def empty_folder(folder_dir):
     folder_dir = Path(folder_dir)
     assert folder_dir.is_dir()
     if folder_dir.exists():
+        folder_dir=str(folder_dir)
         shutil.rmtree(folder_dir)
+        folder_dir=Path(folder_dir)
         folder_dir.mkdir(exist_ok=True)
 
 
@@ -47,6 +49,8 @@ def check_path(folder_dir, create=False):
 
         if create:
             try:
+                # 这里注意下，我出了很多问题，Python3.5在这里使用makedirs,参数只能是str，而不能是Path
+                folder_dir=str(folder_dir)
                 os.makedirs(folder_dir)
                 # os.mkdir(folder_dir)
             except OSError as e:
