@@ -26,7 +26,9 @@ def remove_folder(folder_dir):
     if folder_dir.exists():
         shutil.rmtree(folder_dir)
 
-
+"""
+函数声明： 返回当前目录的父目录
+"""
 def file_abs_path(arg):
     return Path(os.path.realpath(arg)).parent
 
@@ -36,7 +38,9 @@ def remove_file(file_path):
     assert file_path.exists() and file_path.is_file()
     os.remove(file_path)
 
-
+"""
+函数声明： 判断路径是否存在
+"""
 def check_path(folder_dir, create=False):
     folder_dir = Path(folder_dir)
     if not folder_dir.exists():

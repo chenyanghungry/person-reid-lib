@@ -45,7 +45,9 @@ def timer_lite(func):
     duration = time_type_transform(duration.total_seconds())
     return duration
 
-
+"""
+函数声明： 返回当前时间
+"""
 def get_unified_time(d=None, offset=8):
     if d is not None:
         utc_dt = d.utcnow()
@@ -55,7 +57,9 @@ def get_unified_time(d=None, offset=8):
     bj_dt = utc_dt.astimezone(timezone(timedelta(hours=offset)))
     return bj_dt
 
-
+"""
+函数声明： 返回utc时间的str格式
+"""
 def time_tag():
     return str(get_unified_time().strftime('%Y-%m-%d_%H%M%S'))
 

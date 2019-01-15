@@ -9,6 +9,9 @@ from lib.recorder import Recorder
 
 
 class Manager(object):
+    """
+    类声明： 管理数据设置
+    """
     def __init__(self, task_dir, seed=1, mode='Train'):
         self.seed = seed
         self.task_dir = task_dir
