@@ -48,6 +48,7 @@ def check_path(folder_dir, create=False):
         if create:
             try:
                 os.makedirs(folder_dir)
+                # os.mkdir(folder_dir)
             except OSError as e:
                 if e.errno != errno.EEXIST:
                     raise
