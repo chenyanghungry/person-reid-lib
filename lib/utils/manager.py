@@ -30,8 +30,8 @@ class Manager(object):
                  'num_workers': 4,
                  'test_batch_size': 16},
             'server': {'name': 'server',
-                       'root': Path('/media/main/Data3/CC/cy/video/deep-person-reid-master/data/ilids-vid'),  # Store the extracted files
-                       'rawfiles': Path('/media/main/Data3/CC/cy/video/deep-person-reid-master/data/ilids-vid'),  # The location of the original compressed file
+                       'root': Path('/media/main/Data3/CC/cy/video/deep-person-reid-master/data'),  # Store the extracted files
+                       'rawfiles': Path('/media/main/Data3/CC/cy/video/deep-person-reid-master/data'),  # The location of the original compressed file
                        'Model': Path('/media/main/Data3/CC/cy/video/deep-person-reid-master/data/model'),  # Store the officially downloaded torch model parameters
                        'web_env_dir': '',
                        'web_host': "http://localhost",

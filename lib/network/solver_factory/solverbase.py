@@ -10,7 +10,7 @@ class TaskSolverBase(object):
         self.task_mode = self.manager.mode
         self.recorder = self.manager.recorder
         self.logger = self.manager.logger
-        self.recorder.visual.set_mode(str(self.manager.split_id)+'_'+self.manager.dataset_name)
+        #self.recorder.visual.set_mode(str(self.manager.split_id)+'_'+self.manager.dataset_name)
 
         self.const_options()
         self.init_options()

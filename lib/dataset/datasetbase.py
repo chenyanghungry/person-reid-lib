@@ -6,6 +6,7 @@ from __future__ import print_function
 from lib.utils.util import check_path, ConstType, DataPacker
 from lib.dataset.utils import DataStoreManager
 import numpy as np
+from pathlib import Path
 
 
 class DataSetBase(ConstType):
@@ -15,7 +16,7 @@ class DataSetBase(ConstType):
         self.store_type = store_type
         self.store_dir = root_dir / str(name)
         self.logger = logger
-        self.dict_dir = check_path(self.store_dir, create=True) / (str(name) + '_dict.json')
+        self.dict_dir = Path(check_path(self.store_dir, create=True)) / (str(name) + '_dict.json')
 
     def _get_dict(self):
         raise NotImplementedError

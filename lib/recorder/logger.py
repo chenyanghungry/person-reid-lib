@@ -65,6 +65,7 @@ class InfoLogger(object):
         logger = logging.getLogger()
         logger.setLevel(leval_all)
         logfile = file_path / file_name
+        logfile=str(logfile)
         fh = logging.FileHandler(logfile, mode='w')
         fh.setLevel(level_file)
 
