@@ -11,7 +11,9 @@ import pickle
 import numpy as np
 from pathlib import Path
 
-
+"""
+函数声明： 移除子目录保留父目录
+"""
 def empty_folder(folder_dir):
     folder_dir = Path(folder_dir)
     assert folder_dir.is_dir()
@@ -21,7 +23,9 @@ def empty_folder(folder_dir):
         folder_dir=Path(folder_dir)
         folder_dir.mkdir(exist_ok=True)
 
-
+"""
+函数声明： 移除文件夹
+"""
 def remove_folder(folder_dir):
     folder_dir = Path(folder_dir)
     assert folder_dir.is_dir()
@@ -34,7 +38,9 @@ def remove_folder(folder_dir):
 def file_abs_path(arg):
     return Path(os.path.realpath(arg)).parent
 
-
+"""
+函数声明： 移除当前文件
+"""
 def remove_file(file_path):
     file_path = Path(file_path)
     assert file_path.exists() and file_path.is_file()
@@ -60,7 +66,9 @@ def check_path(folder_dir, create=False):
             raise IOError
     return folder_dir
 
-
+"""
+函数声明： 移动文件
+"""
 def copy_file_to(source_dir, target_dir):
 
     if os.path.isfile(source_dir):
@@ -70,6 +78,9 @@ def copy_file_to(source_dir, target_dir):
         raise FileExistsError
 
 
+"""
+函数声明：提出文件到指定路径
+"""
 def unpack_file(file_path, target_path, logger=None):
     if logger is None:
         printf = print

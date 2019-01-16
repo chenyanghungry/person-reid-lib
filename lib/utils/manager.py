@@ -32,8 +32,9 @@ class Manager(object):
             'server': {'name': 'server',
                        'root': Path('/media/main/Data3/CC/cy/video/deep-person-reid-master/data'),  # Store the extracted files
                        'rawfiles': Path('/media/main/Data3/CC/cy/video/deep-person-reid-master/data'),  # The location of the original compressed file
-                       'Model': Path('/media/main/Data3/CC/cy/video/deep-person-reid-master/data/model'),  # Store the officially downloaded torch model parameters
-                       'web_env_dir': '',
+                      # 'Model': Path('/media/main/Data3/CC/cy/video/deep-person-reid-master/data/model'),  # Store the officially downloaded torch model parameters
+                       'Model': None,
+                       'web_env_dir': None,
                        'web_host': "http://localhost",
                        'web_port': 31094,
                        'num_workers': 16,
@@ -50,6 +51,9 @@ class Manager(object):
         self.logger.info('Device: ' + self.device['name'])
         self.logger.info('{0:-^60}'.format('Set Seed ' + str(self.seed)))
 
+    """
+    函数说明：选择指定数据集
+    """
     def set_dataset(self, idx):
         if isinstance(idx, int):
             self.dataset_name = self._dataset_box[idx]

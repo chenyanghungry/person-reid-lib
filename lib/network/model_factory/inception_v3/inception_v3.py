@@ -82,7 +82,7 @@ class BackboneModel(nn.Module):
             model_zoo.load_url(model_urls['inception_v3_google'], model_dir=raw_model_dir))
         logger.info('Model restored from pretrained inception_v3_google')
 
-        self.fea_dim = model.fc.in_features
+        self.fea_dim = model.fc.in_features #Inception V3 2048之后的特征
         model.fc = nn.Sequential()
         model.AuxLogits.fc = nn.Sequential()
         self.feature = model

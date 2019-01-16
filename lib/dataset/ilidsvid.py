@@ -15,7 +15,9 @@ from lib.utils.util import np_filter, unpack_file, check_path
 
 __all__ = ['iLIDSVID']
 
-
+"""
+类声明：处理ILIDSVID数据集
+"""
 class iLIDSVID(DataSetBase):
     def __init__(self, root_dir, rawfiles_dir, split_id, npr=None, logger=None):
         super().__init__('iLIDS-VID', split_id, 'h5', root_dir, logger)

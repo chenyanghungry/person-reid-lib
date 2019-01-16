@@ -10,6 +10,9 @@ from lib.utils.meter import timer_lite
 from solver import Solver
 from lib.evaluation.eval_tools import compute_rank
 
+"""
+主函数
+"""
 
 def main():
     cur_dir = file_abs_path(__file__)

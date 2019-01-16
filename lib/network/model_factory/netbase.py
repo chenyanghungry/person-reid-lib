@@ -14,7 +14,7 @@ class NetBase(object):
         self.nClass = nClass
         self.nCam = nCam
         self.recorder = recorder
-        self.visual = self.recorder.visual
+       # self.visual = self.recorder.visual
         self.logger = self.recorder.logger
         self._mode = 'Train'
         self.is_image_dataset = is_image_dataset
