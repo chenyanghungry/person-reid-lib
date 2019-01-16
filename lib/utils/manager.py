@@ -30,10 +30,10 @@ class Manager(object):
                  'num_workers': 4,
                  'test_batch_size': 16},
             'server': {'name': 'server',
-                       'root': Path('/data/data'),  # Store the extracted files
-                       'rawfiles': Path('/data/rawfiles'),  # The location of the original compressed file
-                       'Model': Path('/data/model'),  # Store the officially downloaded torch model parameters
-                       'web_env_dir': '/data/ignore',
+                       'root': Path('/media/main/Data3/CC/cy/video/deep-person-reid-master/data/ilids-vid'),  # Store the extracted files
+                       'rawfiles': Path('/media/main/Data3/CC/cy/video/deep-person-reid-master/data/ilids-vid'),  # The location of the original compressed file
+                       'Model': Path('/media/main/Data3/CC/cy/video/deep-person-reid-master/data/model'),  # Store the officially downloaded torch model parameters
+                       'web_env_dir': '',
                        'web_host': "http://localhost",
                        'web_port': 31094,
                        'num_workers': 16,
@@ -127,7 +127,7 @@ class Manager(object):
 
         check_path(device['root'], create=True)
         check_path(device['Model'], create=True)
-        check_path(device['web_env_dir'], create=True)
+        check_path(device['web_env_dir'], create=False)
 
         self.device = device
 
