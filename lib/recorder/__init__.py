@@ -11,7 +11,7 @@ class Recorder(ConstType):
         self.time_tag = time_tag
         self.logger = InfoLogger(check_path(self.father_path / 'output/log', create=False), 'log.txt',
                                  self.time_tag).logger
-        self.visual = Visual('Visdom', self.father_path, self.time_tag, device, self.logger)
+        # self.visual = Visual('Visdom', self.father_path, self.time_tag, device, self.logger)
         # sys.stdout = OSLogger(self.father_path / ('log_' + self.time_tag + '.txt'))
 
 
