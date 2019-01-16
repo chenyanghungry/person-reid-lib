@@ -8,6 +8,7 @@ import glob
 import os.path as osp
 from scipy.io import loadmat
 from urllib.request import urlretrieve
+import urllib.request
 from .datasetbase import DataSetBase
 from lib.utils.util import np_filter, unpack_file, check_path
 
@@ -33,7 +34,9 @@ class iLIDSVID(DataSetBase):
     def check_raw_file(self):
         if not self.zipfiles_dir.exists():
             check_path(self.zipfiles_dir.parent, create=True)
-            urlretrieve(self.dataset_url, self.zipfiles_dir)
+            #urlretrieve(self.dataset_url, self.zipfiles_dir)
+
+            urllib.request.urlretrieve(self.dataset_url, self.zipfiles_dir)
         if not self.raw_data_folder.exists():
             unpack_file(self.zipfiles_dir, self.store_dir, self.logger)
 
