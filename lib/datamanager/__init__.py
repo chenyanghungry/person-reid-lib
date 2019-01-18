@@ -7,7 +7,9 @@ from torch.utils.data import DataLoader
 from torchvision.transforms import Compose
 from lib.datamanager.transforms import GroupToPILImage, StackTensor
 
-
+"""
+类声明：加载数据
+"""
 class DataManager(ConstType):
     def __init__(self, name, root_dir, rawfiles_dir, split_id, use_flow, seed, minframes, num_workers, logger):
         self.seed = seed

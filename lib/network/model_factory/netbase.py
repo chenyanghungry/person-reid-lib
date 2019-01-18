@@ -14,7 +14,7 @@ class NetBase(object):
         self.nClass = nClass
         self.nCam = nCam
         self.recorder = recorder
-        self.visual = self.recorder.visual
+       # self.visual = self.recorder.visual
         self.logger = self.recorder.logger
         self._mode = 'Train'
         self.is_image_dataset = is_image_dataset
@@ -72,10 +72,10 @@ class NetBase(object):
             info_str += str(self.loss_mean[i].round(5)) + str_temp
         self.logger.info(info_str)
 
-        self.visual.plot('Loss', 'lr', np.array([self.idx]), np.array([self.optimizer.param_groups[-1]['lr']]))
+        #self.visual.plot('Loss', 'lr', np.array([self.idx]), np.array([self.optimizer.param_groups[-1]['lr']]))
 
-        for i_name, line_name in enumerate(self.line_name):
-            self.visual.plot('Loss', line_name, np.array([self.idx]), self.loss_mean[i_name])
+        # for i_name, line_name in enumerate(self.line_name):
+        #     self.visual.plot('Loss', line_name, np.array([self.idx]), self.loss_mean[i_name])
         self.loss_mean.reset()
 
     def forward(self, data):

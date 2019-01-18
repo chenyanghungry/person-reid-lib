@@ -60,7 +60,7 @@ class DataStoreManager(ConstType):
         self._store_factory = {'db': {'read': self.read_lmdb, 'write': self.write_lmdb},
                                'h5': {'read': self.read_h5, 'write': self.write_h5}}
 
-        self.store_optical_flow = True  # if you want to use optical flow, enable it.
+        self.store_optical_flow = False  # if you want to use optical flow, enable it.
 
         if len(dataset_dir) == 0:
             with_optical_flow = False

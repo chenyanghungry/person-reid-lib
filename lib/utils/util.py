@@ -11,7 +11,9 @@ import pickle
 import numpy as np
 from pathlib import Path
 
-
+"""
+函数声明： 移除子目录保留父目录
+"""
 def empty_folder(folder_dir):
     folder_dir = Path(folder_dir)
     assert folder_dir.is_dir()
@@ -21,7 +23,9 @@ def empty_folder(folder_dir):
         folder_dir=Path(folder_dir)
         folder_dir.mkdir(exist_ok=True)
 
-
+"""
+函数声明： 移除文件夹
+"""
 def remove_folder(folder_dir):
     folder_dir = Path(folder_dir)
     assert folder_dir.is_dir()
@@ -34,7 +38,9 @@ def remove_folder(folder_dir):
 def file_abs_path(arg):
     return Path(os.path.realpath(arg)).parent
 
-
+"""
+函数声明： 移除当前文件
+"""
 def remove_file(file_path):
     file_path = Path(file_path)
     assert file_path.exists() and file_path.is_file()
@@ -57,10 +63,13 @@ def check_path(folder_dir, create=False):
                 if e.errno != errno.EEXIST:
                     raise
         else:
-            raise IOError
+            #raise IOError
+            return None
     return folder_dir
 
-
+"""
+函数声明： 移动文件
+"""
 def copy_file_to(source_dir, target_dir):
 
     if os.path.isfile(source_dir):
@@ -70,6 +79,9 @@ def copy_file_to(source_dir, target_dir):
         raise FileExistsError
 
 
+"""
+函数声明：提出文件到指定路径
+"""
 def unpack_file(file_path, target_path, logger=None):
     if logger is None:
         printf = print
@@ -111,7 +123,7 @@ class ConstType(object):
 class ParseArgs(object):
     def __init__(self, logger=None):
         parser = argparse.ArgumentParser(description='Video-based ReID')
-        parser.add_argument('--gpu', default='0', type=str, help='gpu_ids: e.g. 0  0,1,2  0,2')
+        parser.add_argument('--gpu', default='2,3', type=str, help='gpu_ids: e.g. 0  0,1,2  0,2')
         self.args = parser.parse_args()
 
         if logger is None:
@@ -132,7 +144,7 @@ class DataPacker(object):
         else:
             printf = logger.info
         check_path(Path(file_path).parent, create=True)
-        with open(file_path, 'wb') as f:
+        with open(str(file_path), 'wb') as f:
             pickle.dump(info, f)
         printf('Store data ---> ' + str(file_path))
 
@@ -143,7 +155,7 @@ class DataPacker(object):
         else:
             printf = logger.info
         check_path(file_path)
-        with open(file_path, 'rb') as f:
+        with open(str(file_path), 'rb') as f:
             info = pickle.load(f)
             printf('Load data <--- ' + str(file_path))
             return info

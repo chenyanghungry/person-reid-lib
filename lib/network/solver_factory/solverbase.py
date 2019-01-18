@@ -3,7 +3,9 @@ from lib.datamanager import DataManager
 from lib.evaluation import Evaluator
 from lib.utils.decoratorbox import vision_performance
 
-
+"""
+类声明：Solver父类，构建网络，加载数据，训练测试
+"""
 class TaskSolverBase(object):
     def __init__(self, manager):
         self.manager = manager

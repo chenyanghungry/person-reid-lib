@@ -15,7 +15,9 @@ from lib.utils.util import np_filter, unpack_file, check_path
 
 __all__ = ['iLIDSVID']
 
-
+"""
+类声明：处理ILIDSVID数据集
+"""
 class iLIDSVID(DataSetBase):
     def __init__(self, root_dir, rawfiles_dir, split_id, npr=None, logger=None):
         super().__init__('iLIDS-VID', split_id, 'h5', root_dir, logger)
@@ -36,7 +38,7 @@ class iLIDSVID(DataSetBase):
             check_path(self.zipfiles_dir.parent, create=True)
             urlretrieve(self.dataset_url, self.zipfiles_dir)
 
-            urllib.request.urlretrieve(self.dataset_url, self.zipfiles_dir)
+            #urllib.request.urlretrieve(self.dataset_url, self.zipfiles_dir)
         if not self.raw_data_folder.exists():
             unpack_file(self.zipfiles_dir, self.store_dir, self.logger)
 
@@ -46,8 +48,8 @@ class iLIDSVID(DataSetBase):
         assert self.cam_1_path.exists() and self.cam_2_path.exists()
 
         self.logger.info('Begin Get Video List')
-        person_cam1_dirs = sorted(glob.glob(osp.join(self.cam_1_path, '*')))
-        person_cam2_dirs = sorted(glob.glob(osp.join(self.cam_2_path, '*')))
+        person_cam1_dirs = sorted(glob.glob(osp.join(str(self.cam_1_path), '*')))
+        person_cam2_dirs = sorted(glob.glob(osp.join(str(self.cam_2_path), '*')))
 
         person_cam1_dirs = [osp.basename(item) for item in person_cam1_dirs]
         person_cam2_dirs = [osp.basename(item) for item in person_cam2_dirs]
@@ -107,7 +109,7 @@ class iLIDSVID(DataSetBase):
 
     def _prepare_split(self):
         self.logger.info("Load splits from mat file <--- " + str(self.split_mat_path))
-        mat_split_data = loadmat(self.split_mat_path)['ls_set']
+        mat_split_data = loadmat(str(self.split_mat_path))['ls_set']
 
         num_splits = mat_split_data.shape[0]
         num_total_ids = mat_split_data.shape[1]

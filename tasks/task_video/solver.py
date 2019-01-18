@@ -2,7 +2,9 @@ from lib.network.solver_factory import TaskSolverBase
 from architecture import NetClient, ModelClient
 __all__ = ['Solver']
 
-
+"""
+Solver一般都是保存网络，这里继承了基础网络TaskSolverBase，这里的两个函数重合了，注意是执行那个
+"""
 class Solver(TaskSolverBase):
     def const_options(self):
         # ------train-------
