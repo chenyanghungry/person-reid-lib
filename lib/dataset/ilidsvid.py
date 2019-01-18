@@ -34,7 +34,7 @@ class iLIDSVID(DataSetBase):
     def check_raw_file(self):
         if not self.zipfiles_dir.exists():
             check_path(self.zipfiles_dir.parent, create=True)
-            #urlretrieve(self.dataset_url, self.zipfiles_dir)
+            urlretrieve(self.dataset_url, self.zipfiles_dir)
 
             urllib.request.urlretrieve(self.dataset_url, self.zipfiles_dir)
         if not self.raw_data_folder.exists():
