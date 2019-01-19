@@ -34,7 +34,7 @@ class Manager(object):
                        'rawfiles': Path('/media/main/Data3/CC/cy/video/deep-person-reid-master/data'),  # The location of the original compressed file
                        'Model': Path('/media/main/Data3/CC/cy/video/deep-person-reid-master/data/model'),  # Store the officially downloaded torch model parameters
                       # 'Model': None,
-                       'web_env_dir': "/home/username/ignore",
+                       'web_env_dir': "/media/main/Data3/CC/cy/video/stmp/person-reid-lib/script",
                        'web_host': "http://localhost",
                        'web_port': 31094,
                        'num_workers': 16,

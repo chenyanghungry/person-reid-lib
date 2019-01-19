@@ -22,8 +22,8 @@ class Solver(TaskSolverBase):
     def init_options(self):
         # ------option------
         self.use_flow = False
-        self.save_model = False
-        self.reuse_model = False
+        self.save_model = True
+        self.reuse_model = True
         self.store_search_result = False
         self.net_client = NetClient
         self.model_client = ModelClient
