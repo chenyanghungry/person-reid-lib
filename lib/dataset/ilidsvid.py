@@ -33,6 +33,9 @@ class iLIDSVID(DataSetBase):
         self.resize_hw = None
         self.init()
 
+    """
+    判断数据集的压缩文件和原始文件存不存在
+    """
     def check_raw_file(self):
         if not self.zipfiles_dir.exists():
             check_path(self.zipfiles_dir.parent, create=True)

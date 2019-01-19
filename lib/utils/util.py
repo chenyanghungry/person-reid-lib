@@ -12,7 +12,7 @@ import numpy as np
 from pathlib import Path
 
 """
-函数声明： 移除子目录保留父目录
+函数声明： 移除子目录保留父目录,os和libpath都可以处理目录，不明白作者为什么这么弄
 """
 def empty_folder(folder_dir):
     folder_dir = Path(folder_dir)
@@ -48,23 +48,23 @@ def remove_file(file_path):
 
 """
 函数声明： 判断路径是否存在
+
+注意事项：应该是版本的差异，作者一直用pathlib.Path讲str转化为路径,因为pathlib需要传入的是Path，
+         但是作者又多次用到了os模块，但是os模块传入的格式是str。
 """
 def check_path(folder_dir, create=False):
     folder_dir = Path(folder_dir)
     if not folder_dir.exists():
-
         if create:
             try:
                 # 这里注意下，我出了很多问题，Python3.5在这里使用makedirs,参数只能是str，而不能是Path
                 folder_dir=str(folder_dir)
                 os.makedirs(folder_dir)
-                # os.mkdir(folder_dir)
             except OSError as e:
                 if e.errno != errno.EEXIST:
                     raise
         else:
-            #raise IOError
-            return None
+            raise IOError
     return folder_dir
 
 """
@@ -123,7 +123,7 @@ class ConstType(object):
 class ParseArgs(object):
     def __init__(self, logger=None):
         parser = argparse.ArgumentParser(description='Video-based ReID')
-        parser.add_argument('--gpu', default='2,3', type=str, help='gpu_ids: e.g. 0  0,1,2  0,2')
+        parser.add_argument('--gpu', default='all', type=str, help='gpu_ids: e.g. 0  0,1,2  0,2')
         self.args = parser.parse_args()
 
         if logger is None:

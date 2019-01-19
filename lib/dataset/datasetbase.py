@@ -27,6 +27,9 @@ class DataSetBase(ConstType):
     def _store_dict(self, data_dict):
         DataPacker.dump(data_dict, self.dict_dir, self.logger)
 
+    """
+    数据集数据划分函数
+    """
     def _read_dict(self, split_id=0):
         if not self.dict_dir.exists():
             self.check_raw_file()

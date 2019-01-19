@@ -115,7 +115,7 @@ class TaskSolverBase(object):
         network.load()
         self.do_eval(network, self.test_batch_size)
 
-    @vision_performance
+    # @vision_performance
     def eval(self, network, batch_size):
         self.evaluator.reset(self.Data.dataset, distance_func=network.model.distance_func)
         self.evaluator.set_feature_buffer(network.model.fea_process_func)

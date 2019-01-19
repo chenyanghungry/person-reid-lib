@@ -23,7 +23,7 @@ class Solver(TaskSolverBase):
         # ------option------
         self.use_flow = False
         self.save_model = True
-        self.reuse_model = True
+        self.reuse_model = False
         self.store_search_result = False
         self.net_client = NetClient
-        self.model_client = ModelClient
+        self.model_client = ModelClient  #这两行代码需要注意，Python中类初始化是需要（）的，这里没有，类似将该类赋值给对应的变量，类似起别名

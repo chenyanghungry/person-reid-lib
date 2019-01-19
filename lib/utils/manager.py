@@ -123,6 +123,9 @@ class Manager(object):
             self.cuhk03_classic = False
         self.logger.info('Set Split ID {:2d}'.format(value))
 
+    """
+    函数说明：选择在电脑端还是服务器端
+    """
     def init_device(self):
         if self._device_dict['pc']['rawfiles'].exists():
             device = self._device_dict['pc']
@@ -131,7 +134,7 @@ class Manager(object):
 
         check_path(device['root'], create=True)
         check_path(device['Model'], create=True)
-        check_path(device['web_env_dir'], create=False)
+        check_path(device['web_env_dir'], create=True)
 
         self.device = device
 

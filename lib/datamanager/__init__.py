@@ -8,7 +8,7 @@ from torchvision.transforms import Compose
 from lib.datamanager.transforms import GroupToPILImage, StackTensor
 
 """
-类声明：加载数据
+类声明：加载数据,但不同于数据集的处理，这里是最终的训练数据处理类
 """
 class DataManager(ConstType):
     def __init__(self, name, root_dir, rawfiles_dir, split_id, use_flow, seed, minframes, num_workers, logger):
