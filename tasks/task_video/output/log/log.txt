@@ -1,7 +1,0 @@
-2019-01-16 11:01:27,656 - logger.py[line:59] - INFO: Time Tag: 2019-01-16_110127
-2019-01-16 11:01:27,656 - manager.py[line:50] - INFO: Device: server
-2019-01-16 11:01:27,657 - manager.py[line:51] - INFO: -----------------------Set Seed None------------------------
-2019-01-16 11:01:27,659 - util.py[line:124] - INFO: Choose GPU ID: 0
-2019-01-16 11:01:27,660 - manager.py[line:61] - INFO: -------------------Set Dataset iLIDS-VID--------------------
-2019-01-16 11:01:27,660 - manager.py[line:120] - INFO: Set Split ID  0
-2019-01-16 11:01:29,596 - solverbase.py[line:17] - INFO: Instance num [10] Sample num [ 2] Depth [ 8]

@@ -1,2 +1,0 @@
-class VisualTensor(object):
-    pass
