@@ -57,6 +57,9 @@ class TaskSolverBase(object):
         self.net_client = None
         self.model_client = None
 
+    """
+    函数说明：构建网络并开始训练
+    """
     def run(self):
         self.network = NetManager(nClass=self.Data.dataset.train_person_num,
                                   nCam=self.Data.dataset.train_cam_num,
