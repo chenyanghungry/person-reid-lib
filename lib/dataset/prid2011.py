@@ -9,7 +9,7 @@ from lib.utils.util import np_filter, unpack_file, check_path
 
 class PRID2011(DataSetBase):
     def __init__(self, root_dir, rawfiles_dir, split_id, npr=None, logger=None):
-        super().__init__('PRID-2011', split_id, 'h5', root_dir, logger)
+        super().__init__('PRID_2011', split_id, 'h5', root_dir, logger)
         self.zipfiles_dir = rawfiles_dir / 'prid_2011.zip'
 
         self.raw_data_folder = self.store_dir / 'prid_2011'
@@ -26,7 +26,8 @@ class PRID2011(DataSetBase):
         self.init()
 
     def check_raw_file(self):
-        if not self.zipfiles_dir.exists():
+        # if not self.zipfiles_dir.exists():
+        if  self.zipfiles_dir.exists():
             check_path(self.zipfiles_dir.parent, create=True)
             urlretrieve(self.dataset_url, self.zipfiles_dir)
         if not self.raw_data_folder.exists():
@@ -39,8 +40,8 @@ class PRID2011(DataSetBase):
         self.logger.info('Begin Get Video List')
         assert self.cam_a_path.exists() and self.cam_b_path.exists()
 
-        person_cama_dirs = sorted(glob.glob(osp.join(self.cam_a_path, '*')))[:200]
-        person_camb_dirs = sorted(glob.glob(osp.join(self.cam_b_path, '*')))[:200]
+        person_cama_dirs = sorted(glob.glob(osp.join(str(self.cam_a_path), '*')))[:200]
+        person_camb_dirs = sorted(glob.glob(osp.join(str(self.cam_b_path), '*')))[:200]
 
         person_cama_dirs = [osp.basename(item) for item in person_cama_dirs]
         person_camb_dirs = [osp.basename(item) for item in person_camb_dirs]
@@ -141,7 +142,7 @@ class PRID2011(DataSetBase):
 
     def _load_from_mat(self, track_info):
         self.logger.info("Load splits from mat file <--- " + str(self.split_mat_path))
-        mat_split_data = loadmat(self.split_mat_path)['ls_set']
+        mat_split_data = loadmat(str(self.split_mat_path))['ls_set']
 
         num_splits = mat_split_data.shape[0]
         num_total_ids = mat_split_data.shape[1]
