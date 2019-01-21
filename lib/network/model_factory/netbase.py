@@ -127,7 +127,7 @@ class NetBase(object):
         if rank1 > self.best_performance:
             self.best_performance = rank1
             empty_folder(self.task_dir / 'output/model')
-            torch.save(self.model_parallel.state_dict(), self.task_dir / 'output/model/model.pkl')
+            torch.save(self.model_parallel.state_dict(), str(self.task_dir / 'output/model/model.pkl'))
             self.logger.info('Model has been saved for index ' + str(self.idx))
 
     def load(self, model_name=None):
