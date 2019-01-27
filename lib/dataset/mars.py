@@ -24,7 +24,7 @@ class MARS(DataSetBase):
 
         for raw_data in raw_data_list:
             if not (self.raw_data_folder / raw_data).exists():
-                unpack_file(raw_file_folder / str(raw_data + '.zip'), self.raw_data_folder, self.logger)
+                unpack_file(str(raw_file_folder / str(raw_data + '.zip')), str(self.raw_data_folder), self.logger)
 
     def _get_dict(self):
         self.logger.info('Begin Get Video List')
@@ -41,9 +41,9 @@ class MARS(DataSetBase):
 
         train_names = self._get_names(train_name_path)
         test_names = self._get_names(test_name_path)
-        track_train = scio.loadmat(track_train_info_path)['track_train_info']  # numpy.ndarray (8298, 4)
-        track_test = scio.loadmat(track_test_info_path)['track_test_info']  # numpy.ndarray (12180, 4)
-        query_idx = scio.loadmat(quary_idx_path)['query_IDX'].squeeze()  # numpy.ndarray (1980,)
+        track_train = scio.loadmat(str(track_train_info_path))['track_train_info']  # numpy.ndarray (8298, 4)
+        track_test = scio.loadmat(str(track_test_info_path))['track_test_info']  # numpy.ndarray (12180, 4)
+        query_idx = scio.loadmat(str(quary_idx_path))['query_IDX'].squeeze()  # numpy.ndarray (1980,)
         track_train[:, 0] -= 1
         track_train[:, 3] -= 1
         track_test[:, 0] -= 1
@@ -73,7 +73,7 @@ class MARS(DataSetBase):
 
     def _get_names(self, fpath):
         names = []
-        with open(fpath, 'r') as f:
+        with open(str(fpath), 'r') as f:
             for line in f:
                 new_line = line.rstrip()
                 names.append(new_line)
