@@ -5,6 +5,12 @@ from lib.network.model_factory.inception_v3 import ModelServer, NetServer, Backb
 from lib.network.loss_factory import BatchHardTripletLoss
 from lib.network.layer_factory.utils import BasicConv2d
 
+class weightedsum(nn.Module):
+    def __init__(self,input_size, hidden_size):
+        super().__init__()
+
+
+
 
 class FuseNet(nn.Module):
     def __init__(self, input_size, hidden_size):

@@ -123,7 +123,7 @@ class ConstType(object):
 class ParseArgs(object):
     def __init__(self, logger=None):
         parser = argparse.ArgumentParser(description='Video-based ReID')
-        parser.add_argument('--gpu', default='0,1,2,3', type=str, help='gpu_ids: e.g. 0  0,1,2  0,2')
+        parser.add_argument('--gpu', default='0', type=str, help='gpu_ids: e.g. 0  0,1,2  0,2')
         self.args = parser.parse_args()
 
         if logger is None:
