@@ -16,8 +16,8 @@ class MyInception3(Inception3):
         video_flag = False
         if x.dim() == 5:
             video_flag = True
-            video_num = x.size(0)
-            depth = x.size(1)
+            video_num = x.size(0)  # 20
+            depth = x.size(1)      # 8
             x = x.view((video_num * depth,) + x.size()[2:])
 
             # 299 x 299 x 3

@@ -48,10 +48,11 @@ class FuseNet(nn.Module):
             x = x.view((1,) + x.size())
         assert x.dim() == 5
 
-        video_num = x.size(0)
-        depth = x.size(1)
+        video_num = x.size(0) # 20
+        depth = x.size(1)     # 8
 
         res = torch.cat((x[:, 0].contiguous().view((x.size(0), 1) + x.size()[2:]), x), dim=1)
+        # 去序列第一帧，因为需要当前帧减去前一帧
         res = res[:, :-1]
         res = x - res
 
@@ -127,3 +128,5 @@ class NetClient(NetServer):
                                loss_t_v.item(),
                                loss_final.item()])
         return loss_final
+
+
