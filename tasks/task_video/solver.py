@@ -1,5 +1,5 @@
 from lib.network.solver_factory import TaskSolverBase
-from architecture import NetClient, ModelClient
+from architecture import NetClient, ModelClient, NetClient1, ModelClient1
 __all__ = ['Solver']
 
 """
@@ -25,5 +25,5 @@ class Solver(TaskSolverBase):
         self.save_model = True
         self.reuse_model = False
         self.store_search_result = False
-        self.net_client = NetClient
-        self.model_client = ModelClient  #这两行代码需要注意，Python中类初始化是需要（）的，这里没有，类似将该类赋值给对应的变量，类似起别名
+        self.net_client = NetClient1
+        self.model_client = ModelClient1  #这两行代码需要注意，Python中类初始化是需要（）的，这里没有，类似将该类赋值给对应的变量，类似起别名
